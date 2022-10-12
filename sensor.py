@@ -111,9 +111,9 @@ class OTERateSensor(SensorEntity):
                             _LOGGER.info("Missing hourly value in OTE dataset.")
                     current_cost = cost_history[date.hour]
 
-            _value = current_cost
-            _attr = cost_history
-            _available = True
-        except ValueError:
-            _available = False
+            self._value = current_cost
+            self._attr = cost_history
+            self._available = True
+        except:
+            self._available = False
             _LOGGER.exception("Error occured while retrieving data from ote-cr.cz.")
